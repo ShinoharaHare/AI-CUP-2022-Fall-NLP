@@ -3,5 +3,6 @@ data/*
 lightning_logs/
 temp.*
 
+!/**/.gitkeep
 .vscode/
 __pycache__/
