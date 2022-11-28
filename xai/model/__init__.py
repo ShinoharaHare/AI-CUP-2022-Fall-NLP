@@ -1,8 +1,9 @@
 from pytorch_lightning import LightningModule
-from transformers import LongT5ForConditionalGeneration, T5TokenizerFast
 from torch import optim
+from transformers import LongT5ForConditionalGeneration, T5TokenizerFast
 
 from .stance import *
+
 
 class TestModel(LightningModule):
     def __init__(self):

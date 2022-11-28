@@ -1,6 +1,7 @@
+from collections import defaultdict
 import csv
 from dataclasses import dataclass
-from typing import Generator, List, Literal
+from typing import Generator, List, Literal, Optional
 
 from transformers import PreTrainedTokenizerFast
 
@@ -13,11 +14,12 @@ class RawItem:
     q: str
     r: str
     s: Literal['AGREE', 'DISAGREE']
-    q_prime: str
-    r_prime: str
+    q_prime: Optional[str]
+    r_prime: Optional[str]
 
     @classmethod
-    def from_dict(cls, d: dict):        
+    def from_dict(cls, d: dict):
+        d = defaultdict(lambda: None, d)
         return cls(
             id=d['id'],
             q=d['q'],
