@@ -1,0 +1,7 @@
+.cache/
+data/*
+lightning_logs/
+temp.*
+
+.vscode/
+__pycache__/

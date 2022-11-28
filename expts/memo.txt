@@ -1,0 +1,13 @@
+每個 id 只有一種 s
+不同 id 可能有相同 (q,r)
+相同 (q,r) 可能有不同 s
+split 可能要以 id 來分
+
+
+stance detection
+datasets
+- RumourEval
+- PStance
+- acl2020-wtwt-tweets
+
+https://github.com/Ayushk4/stance-dataset/blob/master/dataset/process.py

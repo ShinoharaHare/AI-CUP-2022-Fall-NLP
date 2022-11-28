@@ -1,0 +1,3 @@
+Tokenizer,Min Tokens,Max Tokens,Mean Tokens,<=512,>512
+T5,12,9772,191,36275,2071
+Bert,12,8251

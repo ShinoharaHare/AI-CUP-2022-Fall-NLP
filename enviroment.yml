@@ -1,0 +1,17 @@
+name: nlp-aicup
+channels:
+  - defaults
+  - nvidia
+  - pytorch
+dependencies:
+  - python=3.9
+  - pip
+  - pytorch
+  - pytorch-cuda=11.7
+  - pip:
+    - transformers
+    - ipykernel
+    - ipywidgets==7.7.1
+    - pytorch-lightning
+    - datasets
+    - nltk==3.7
