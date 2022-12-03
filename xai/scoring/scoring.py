@@ -1,11 +1,10 @@
-import json
-from typing import Dict, List
 import csv
-
+import json
 import os
+from typing import Dict, List
+
 import nltk
 from tqdm.auto import tqdm
-
 
 try:
     nltk.data.find('tokenizers/punkt')
