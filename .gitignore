@@ -1,6 +1,9 @@
 .cache/
+.trash/
 data/*
 lightning_logs/*
+preds/*
+
 temp.*
 
 !/**/.gitkeep

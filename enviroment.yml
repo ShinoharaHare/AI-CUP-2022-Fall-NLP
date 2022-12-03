@@ -6,7 +6,7 @@ channels:
 dependencies:
   - python=3.9
   - pip
-  - pytorch
+  - pytorch=1.13.0=py3.9_cuda11.7_cudnn8.5.0_0
   - pytorch-cuda=11.7
   - pip:
     - transformers
@@ -15,3 +15,5 @@ dependencies:
     - pytorch-lightning
     - datasets
     - nltk==3.7
+    - sentencepiece
+    - tensorboard

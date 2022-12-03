@@ -3,6 +3,9 @@
 相同 (q,r) 可能有不同 s
 split 可能要以 id 來分
 
+只有 id 3206 特別長，比其他資料長很多，可以考慮直接忽略
+
+test 最多 2300 左右
 
 stance detection
 datasets
