@@ -115,7 +115,7 @@ class TokenClassificationModel(BaseTokenClassificationModel):
 
     def decode_answers(self, xs, encodings, special_tokens_mask, logp) -> List[Dict[str, str]]:
         special_tokens_mask = special_tokens_mask.bool()
-        logp[special_tokens_mask] = torch.tensor([0.0, -float('inf')])
+        logp[special_tokens_mask] = torch.tensor([0.0, -float('inf')], device=self.device)
 
         answers = []
         for i, x in enumerate(xs):
@@ -210,8 +210,8 @@ class SiameseTokenClassificationModel(BaseTokenClassificationModel):
         r_special_tokens_mask = r_special_tokens_mask.bool()
         q_logp, r_logp = preds
 
-        q_logp[q_special_tokens_mask] = torch.tensor([0.0, -float('inf')])
-        r_logp[r_special_tokens_mask] = torch.tensor([0.0, -float('inf')])
+        q_logp[q_special_tokens_mask] = torch.tensor([0.0, -float('inf')], device=self.device)
+        r_logp[r_special_tokens_mask] = torch.tensor([0.0, -float('inf')], device=self.device)
         
         answers = []
         for i, x in enumerate(xs):
