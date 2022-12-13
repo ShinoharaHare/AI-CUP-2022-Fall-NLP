@@ -35,7 +35,7 @@ class Config:
 
 def main():
     config = Config(
-        name='SiameseSpanPredictionModel',
+        name='SiameseSpanPredictionModelWithLSTM',
         batch_size=4,
         accumulate_grad_batches=8,
         log_every_n_steps=50,
@@ -56,7 +56,7 @@ def main():
         return qn <= 512 and rn <= 512
     
     extra_tokenizer_kwargs = dict(
-        # max_length=1024,
+        # max_length=512,
         # padding='max_length'
     )
     
