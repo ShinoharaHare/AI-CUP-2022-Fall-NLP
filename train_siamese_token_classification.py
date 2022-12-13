@@ -37,14 +37,11 @@ def main():
         name='SiameseTokenClassificationModel',
         batch_size=4,
         accumulate_grad_batches=8,
-        log_every_n_steps=10,
-        save_every_n_steps=None,
-        val_check_interval=None,
         max_epochs=2,
         ckpt_path='',
     )
 
-    model = TokenClassificationModel(from_pretrained=True)
+    model = SiameseTokenClassificationModel(from_pretrained=True)
     tokenizer = model.tokenizer
     
     with open('data/length/deberta-v3.json', 'r') as f:
@@ -60,7 +57,7 @@ def main():
     )
 
     train_dataset = MultiTargetDatasetForSiamese('data/multi_target/train.jsonl', tokenizer, item_filter, extra_tokenizer_kwargs)
-    val_dataset = PredictionDatasetForSiamese('data/val.csv', tokenizer)
+    val_dataset = PredictionDatasetForSiamese('data/splitted/val.csv', tokenizer)
 
     dataloaders = dict(
         train_dataloaders=DataLoader(train_dataset, batch_size=config.batch_size, num_workers=config.num_workers, pin_memory=True, shuffle=True),
