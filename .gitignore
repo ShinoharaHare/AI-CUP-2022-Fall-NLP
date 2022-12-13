@@ -1,0 +1,7 @@
+.cache/
+lightning_logs/*
+weights/*
+
+!/**/.gitkeep
+.vscode/
+__pycache__/
