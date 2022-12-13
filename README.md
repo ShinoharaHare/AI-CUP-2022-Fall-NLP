@@ -5,7 +5,7 @@
 ### 使用 Anaconda 建立環境
 
 ```bash
-conda create -f enviroment.yml
+conda env create -f enviroment.yml
 conda activate nlp-aicup
 ```
 
