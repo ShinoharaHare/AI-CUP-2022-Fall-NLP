@@ -171,19 +171,17 @@ class BaseSiameseSpanPredictionModel(BaseSpanPredictionModel):
         for i, x in enumerate(xs):
             q_prime = []
             r_prime = []
-            for q_span, r_span in zip(b_q_spans[i], b_r_spans[i]):
-                qs, qe, q_score = q_span
-                qs = q.token_to_chars(i, qs).start
-                qe = q.token_to_chars(i, qe).end
-                
-                rs, re, r_score = r_span
-                rs = r.token_to_chars(i, rs).start
-                re = r.token_to_chars(i, re).end
-                
-                qp = x.q[qs:qe].strip()
-                rp = x.r[rs:re].strip()
 
+            for s, e, score in b_q_spans[i]:
+                s = q.token_to_chars(i, s).start
+                e = q.token_to_chars(i, e).end
+                qp = x.q[s:e].strip()
                 q_prime.append(qp)
+
+            for s, e, score in b_r_spans[i]:
+                s = r.token_to_chars(i, s).start
+                e = r.token_to_chars(i, e).end
+                rp = x.r[s:e].strip()
                 r_prime.append(rp)
 
             q_prime = ' '.join(q_prime)
@@ -229,8 +227,11 @@ class SiameseSpanPredictionModel(BaseSiameseSpanPredictionModel):
         q_e = self.encoder(**q)[0]
         r_e = self.encoder(**r)[0]
 
-        q_h, _ = self.qr_attn(q_e, r_e, r_e)
-        r_h, _ = self.qr_attn(r_e, q_e, q_e)
+        q_pmask = ~q.attention_mask.bool()
+        r_pmask = ~r.attention_mask.bool()
+
+        q_h, _ = self.qr_attn(q_e, r_e, r_e, r_pmask)
+        r_h, _ = self.qr_attn(r_e, q_e, q_e, q_pmask)
 
         x = self.outputs(q_h)
         qs_logits, qe_logits = x.split(1, dim=-1)

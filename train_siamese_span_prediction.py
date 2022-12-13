@@ -42,7 +42,7 @@ def main():
         save_every_n_steps=100,
         val_check_interval=500,
         max_epochs=1,
-        # ckpt_path='',
+        ckpt_path='',
     )
 
     model = SiameseSpanPredictionModel(from_pretrained=True)
@@ -56,7 +56,7 @@ def main():
         return qn <= 512 and rn <= 512
     
     extra_tokenizer_kwargs = dict(
-        # max_length=1024,
+        # max_length=512,
         # padding='max_length'
     )
     
