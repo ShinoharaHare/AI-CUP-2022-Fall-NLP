@@ -38,11 +38,10 @@ def main():
         name='SpanPredictionModel',
         batch_size=4,
         accumulate_grad_batches=8,
-        log_every_n_steps=50,
         save_every_n_steps=100,
         val_check_interval=500,
         max_epochs=1,
-        # ckpt_path='',
+        ckpt_path='',
     )
 
     model = SpanPredictionModel(from_pretrained=True)
@@ -56,7 +55,7 @@ def main():
         return qn <= 512 and rn <= 512
     
     extra_tokenizer_kwargs = dict(
-        # max_length=1024,
+        # max_length=512,
         # padding='max_length'
     )
     

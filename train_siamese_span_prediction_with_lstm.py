@@ -38,7 +38,6 @@ def main():
         name='SiameseSpanPredictionModelWithLSTM',
         batch_size=4,
         accumulate_grad_batches=8,
-        log_every_n_steps=50,
         save_every_n_steps=100,
         val_check_interval=500,
         max_epochs=1,
