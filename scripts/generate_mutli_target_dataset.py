@@ -71,8 +71,8 @@ if __name__ == '__main__':
             x = id2item[id]
             y = dict(
                 id=x.id,
-                q=x.q,
-                r=x.r,
+                q=preprocess_str(x.q),
+                r=preprocess_str(x.r),
                 s=x.s,
                 primes=primes,
                 spans=spans
