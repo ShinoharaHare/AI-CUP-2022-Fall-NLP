@@ -42,6 +42,7 @@ conda activate nlp-aicup
 - 分離式 + Token Classification + LSTM: `notebooks/predict_siamese_span_prediction_model_with_lstm.ipynb`
 - 分離式 + Token Classification: `notebooks/predict_siamese_token_classification_model.ipynb`
 - 合併式 + Span Prediction: `notebooks/predict_span_prediction_model.ipynb`
+- 合併式 + Token Classification: `notebooks/predict_token_classification_model.ipynb`
 
 Span Prediction 模型在預測時可以調整以下參數
 - top_k: 考慮機率最大的 K 個 Span
@@ -100,12 +101,13 @@ Answer 格式: 型態為 Dict，格式如下所示，用來表示一筆資料的
 
 ## 模型權重
 
-|           Model Type            |  Epoch   | Public Score | Private Score | URL                      |
-| :-----------------------------: | :------: | :----------: | :-----------: | :----------------------- |
-| 分離式 + Span Prediction + LSTM | 1 (full) |   0.836781   | **0.898072**  | [Download](https://github.com/ShinoharaHare/AI-CUP-2022-Fall-NLP/releases/download/v0.0.0/s-sp-lstm.pt)             |
-|    合併式 + Span Prediction     | 1 (full) | **0.845039** |   0.895501    | [Download](https://github.com/ShinoharaHare/AI-CUP-2022-Fall-NLP/releases/download/v0.0.0/sp.pt)             |
-|    分離式 + Span Prediction     | 2 (full) |   0.842063   |   0.890389    | 因遭誤刪，無法提供此權重 |
-|    分離式 + Span Prediction     | 1 (full) |   0.836294   |   0.887342    | [Download](https://github.com/ShinoharaHare/AI-CUP-2022-Fall-NLP/releases/download/v0.0.0/s-sp.pt)             |
-|  分離式 + Token Classification  | 2 (train) |      x       |       x       | [Download](https://github.com/ShinoharaHare/AI-CUP-2022-Fall-NLP/releases/download/v0.0.0/s-tc.pt)             |
+|           Model Type            |   Epoch   | Public Score | Private Score | URL                                                                                                     |
+| :-----------------------------: | :-------: | :----------: | :-----------: | :------------------------------------------------------------------------------------------------------ |
+| 分離式 + Span Prediction + LSTM | 1 (full)  |   0.836781   | **0.898072**  | [Download](https://github.com/ShinoharaHare/AI-CUP-2022-Fall-NLP/releases/download/v0.0.0/s-sp-lstm.pt) |
+|    合併式 + Span Prediction     | 1 (full)  | **0.845039** |   0.895501    | [Download](https://github.com/ShinoharaHare/AI-CUP-2022-Fall-NLP/releases/download/v0.0.0/sp.pt)        |
+|    分離式 + Span Prediction     | 2 (full)  |   0.842063   |   0.890389    | 因遭誤刪，無法提供此權重                                                                                |
+|    分離式 + Span Prediction     | 1 (full)  |   0.836294   |   0.887342    | [Download](https://github.com/ShinoharaHare/AI-CUP-2022-Fall-NLP/releases/download/v0.0.0/s-sp.pt)      |
+|  分離式 + Token Classification  | 2 (train) |      x       |       x       | [Download](https://github.com/ShinoharaHare/AI-CUP-2022-Fall-NLP/releases/download/v0.0.0/s-tc.pt)      |
+|  合併式 + Token Classification  | 2 (train) |      x       |       x       | [Download](https://github.com/ShinoharaHare/AI-CUP-2022-Fall-NLP/releases/download/v0.0.0/tc.pt)        |
 
 註：為節省儲存空間，在進行實驗時我們會定期清理一些權重，因此部分權重並沒有保留下來。上表所提供的部分權重可能並非與當初完全相同，而是由後來進行重新訓練所得到，所以部分權重的分數可能與上表所示不相同
