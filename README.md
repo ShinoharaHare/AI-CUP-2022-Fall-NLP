@@ -110,4 +110,5 @@ Answer 格式: 型態為 Dict，格式如下所示，用來表示一筆資料的
 |  分離式 + Token Classification  | 2 (train) |      x       |       x       | [Download](https://github.com/ShinoharaHare/AI-CUP-2022-Fall-NLP/releases/download/v0.0.0/s-tc.pt)      |
 |  合併式 + Token Classification  | 2 (train) |      x       |       x       | [Download](https://github.com/ShinoharaHare/AI-CUP-2022-Fall-NLP/releases/download/v0.0.0/tc.pt)        |
 
-註：為節省儲存空間，在進行實驗時我們會定期清理一些權重，因此部分權重並沒有保留下來。上表所提供的部分權重可能並非與當初完全相同，而是由後來進行重新訓練所得到，所以部分權重的分數可能與上表所示不相同
+- 為節省儲存空間，在進行實驗時我們會定期清理一些權重，因此部分權重並沒有保留下來。上表所提供的部分權重可能並非當初保留下來，而是由後來進行重新訓練得到，所以部分權重的實際分數可能與上表所示不同
+- 建議將下載好的權重存放至 `weights` 資料夾，演示預測流程的 Jupyer Notebook 預設會從此資料夾載入權重
